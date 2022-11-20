@@ -17,8 +17,9 @@ pipeline {
 			}
 			steps {
                 echo 'Build & test'
-                mvn_script = load 'maven.groovy'
-                mvn_script.maven_build_test()
+                sh 'mvn clean install -e'
+                //mvn_script = load 'maven.groovy'
+                //mvn_script.maven_build_test()
             }
         }
 		stage('Build gradle') {
@@ -29,8 +30,9 @@ pipeline {
 			}
 			steps {
                 echo 'Build & test'
-                gradle_script = load 'gradle.groovy'
-                gradle_script.gradle_build_test()
+                sh 'gradle build'
+                //gradle_script = load 'gradle.groovy'
+                //gradle_script.gradle_build_test()
             }
         }
         stage('Push to Nexus') {
