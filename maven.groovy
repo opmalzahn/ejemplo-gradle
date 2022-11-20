@@ -35,7 +35,7 @@ sourceSets {
     testImplementation group: 'junit', name: 'junit', version: '4.13'
 } */
 
-tasks.named('maven_build_test') {
+def maven_build_test() {
     sh 'gradle build'
 }
 

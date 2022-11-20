@@ -9,16 +9,6 @@ pipeline {
 	    booleanParam 'PushNexus'
 	}
     stages {
-        stage('Script Mvn') {
-            /* when {
-				expression{
-					params.Build_Tool == 'maven'
-				}
-			} */
-			steps {
-                mvn_script = load 'maven.groovy'
-            }
-        }
         stage('Build mvn') {
             when {
 				expression{
@@ -27,6 +17,8 @@ pipeline {
 			}
 			steps {
                 echo 'Build & test'
+                //sh 'mvn clean install -e'
+                mvn_script = load 'maven.groovy'
                 mvn_script.maven_build_test()
             }
         }
