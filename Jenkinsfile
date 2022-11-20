@@ -14,6 +14,7 @@ pipeline {
             steps {
                 script {
                     script_mvn = load 'maven.groovy'
+                    script_gradle = load 'gradle.groovy'
                 }
             }
         }
@@ -30,19 +31,18 @@ pipeline {
                 
             }
         }
-		/* stage('Build gradle') {
+		stage('Build gradle') {
             when {
 				expression{
 					params.Build_Tool == 'gradle'
 				}
 			}
 			steps {
-                echo 'Build & test'
-                sh 'gradle build'
-                //gradle_script = load 'gradle.groovy'
-                //gradle_script.gradle_build_test()
+                script {
+                    gradle_script.gradle_build_test()
+                }
             }
-        } */
+        }
         stage('Push to Nexus') {
            when {
 				expression{

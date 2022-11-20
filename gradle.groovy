@@ -35,7 +35,7 @@ dependencies {
     testImplementation group: 'junit', name: 'junit', version: '4.13'
 }
 
-tasks.named('gradle_build_test') {
+def gradle_build_test() {
     sh 'gradle build'
 }
 
