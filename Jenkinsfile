@@ -14,10 +14,11 @@ pipeline {
     stages {
         stage('Load Scripts') {   
             steps {
-                script_mvn = load 'maven.groovy'
-                script_gradle = load 'gradle.groovy' 
+                script {
+                    script_mvn = load 'maven.groovy'
+                    script_gradle = load 'gradle.groovy' 
+                }
             }         
-           
         }
         stage('Build mvn') {
             when {
