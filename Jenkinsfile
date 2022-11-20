@@ -31,9 +31,9 @@ pipeline {
 			steps {
                 script {
                     def script_gradle = load 'gradle.groovy' 
-                    script_gradle.compile()
-                    script_gradle.run()
-                    script_gradle.test()
+                    script_gradle.grdl_compile()
+                    script_gradle.grdl_run()
+                    script_gradle.grdl_test()
                 }
             }
         }
