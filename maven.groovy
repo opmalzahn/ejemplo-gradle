@@ -1,4 +1,4 @@
- plugins {
+/*  plugins {
     id 'groovy'
 }
 
@@ -33,7 +33,7 @@ dependencies {
     testImplementation group: 'com.lesfurets', name: 'jenkins-pipeline-unit', version: '1.7'
     testImplementation group: 'org.jenkins-ci.plugins.workflow', name: 'workflow-job', version: '2.40'
     testImplementation group: 'junit', name: 'junit', version: '4.13'
-}
+} */
 
 def maven_build_test() {
     sh 'mvn clean install -e'
