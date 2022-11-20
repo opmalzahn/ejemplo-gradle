@@ -18,7 +18,11 @@ pipeline {
 			steps {
                 script {
                     def script_mvn = load 'maven.groovy'
-                    script_mvn.maven_build_test()                
+                    script_mvn.mvn_build()
+                    script_mvn.mvn_sonar()
+                    script_mvn.mvn_test()
+                    script_mvn.mvn_package()
+                    script_mvn.mvn_run()
                 }
             }
         }

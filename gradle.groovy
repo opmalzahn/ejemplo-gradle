@@ -6,7 +6,7 @@ def grdl_compile() {
 
 def grdl_run() {
     stage('grdl run'){
-        sh 'gradle build'
+        sh 'gradle bootRun &'
     }
 }
 
