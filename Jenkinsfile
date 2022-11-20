@@ -12,9 +12,12 @@ pipeline {
 	    booleanParam 'PushNexus'
 	}
     stages {
-        stage('Load Scripts') {            
-            script_mvn = load 'maven.groovy'
-            script_gradle = load 'gradle.groovy'
+        stage('Load Scripts') {   
+            steps {
+                script_mvn = load 'maven.groovy'
+                script_gradle = load 'gradle.groovy' 
+            }         
+           
         }
         stage('Build mvn') {
             when {
