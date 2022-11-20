@@ -36,7 +36,7 @@ pipeline {
         testImplementation group: 'junit', name: 'junit', version: '4.13'
     }
 
+}
     def gradle_build_test() {
         sh 'gradle build'
     }
-}
