@@ -9,17 +9,15 @@ pipeline {
 	    booleanParam 'PushNexus'
 	}
     stages {
-        stage('Build mvn') {
+        stage('Build maven') {
             when {
 				expression{
 					params.Build_Tool == 'maven'
 				}
 			}
 			steps {
-                script {
-                    def script_mvn = load 'maven.groovy'
-                    script_mvn.maven_build_test()                
-                }
+                def script_mvn = load 'maven.groovy'
+                script_mvn.maven_build_test() 
             }
         }
 		stage('Build gradle') {
@@ -29,10 +27,8 @@ pipeline {
 				}
 			}
 			steps {
-                script {
-                    def script_gradle = load 'gradle.groovy' 
-                    script_gradle.gradle_build_test()
-                }
+                def script_gradle = load 'gradle.groovy' 
+                script_gradle.gradle_build_test()
             }
         }
         stage('Push to Nexus') {
