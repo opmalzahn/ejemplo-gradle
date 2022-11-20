@@ -1,4 +1,4 @@
-def maven_build_test() {
+def mvn_build() {
     stage('Build'){
         sh 'mvn clean install -e'
     }
