@@ -3,27 +3,26 @@ def mvn_build() {
         sh 'mvn clean install -e'
     }
 }
-
 def mvn_sonar() {
     stage('Sonar'){
         withSonarQubeEnv('SonarTest') {
-            sh './mvnw clean package sonar:sonar'
+            sh 'mvn clean package sonar:sonar -Dsonar.projectKey=build-maven -Dsonar.java.binaries=build'
         }
     }
 }
 def mvn_test() {
     stage('Test'){
-        sh './mvnw clean test -e'
+        sh 'mvn clean test -e'
     }
 }
 def mvn_package() {
     stage('Package'){
-        sh './mvnw clean package -e'
+        sh 'mvn clean package -e'
     }
 }
 def mvn_run() {
     stage('Run'){
-        sh 'nohup bash ./mvnw spring-boot:run &'
+        sh 'nohup bash mvn spring-boot:run &'
     }
 }
 
