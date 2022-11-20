@@ -1,5 +1,5 @@
 def maven_build_test() {
-    stage(){
+    stage('build'){
         sh 'mvn clean install -e'
     }
 }
