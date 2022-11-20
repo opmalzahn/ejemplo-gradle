@@ -17,10 +17,11 @@ pipeline {
 				}
 			}
 			steps {
-                echo 'Build & test'
-                //sh 'mvn clean install -e'
-                scripts.mvn = load 'maven.groovy'
-                scripts.mvn.maven_build_test()
+                scripts {
+                    scripts.mvn = load 'maven.groovy'
+                    scripts.mvn.maven_build_test()
+                }
+                
             }
         }
 		/* stage('Build gradle') {
