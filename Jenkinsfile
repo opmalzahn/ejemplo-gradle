@@ -2,7 +2,7 @@ pipeline {
     agent any
     tools {
         maven 'Maven-3.8.6'
-        gradle 'Gradle-7.5'
+        gradle 'Gradle'
     }
 	parameters{
 		choice choices: ['maven','gradle'], name: 'Build_Tool'
