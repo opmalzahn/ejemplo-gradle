@@ -4,24 +4,24 @@ def maven_build_test() {
     }
 }
 
-dev mvn_sonar() {
+def mvn_sonar() {
     stage('Sonar'){
         withSonarQubeEnv('SonarTest') {
             sh './mvnw clean package sonar:sonar'
         }
     }
 }
-dev mvn_test() {
+def mvn_test() {
     stage('Test'){
         sh './mvnw clean test -e'
     }
 }
-dev mvn_package() {
+def mvn_package() {
     stage('Package'){
         sh './mvnw clean package -e'
     }
 }
-dev mvn_run() {
+def mvn_run() {
     stage('Run'){
         sh 'nohup bash ./mvnw spring-boot:run &'
     }
