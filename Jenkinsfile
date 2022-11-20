@@ -27,7 +27,9 @@ pipeline {
 				}
 			}
 			steps {
-                script_mvn.maven_build_test()                
+                script {
+                    script_mvn.maven_build_test()                
+                }
             }
         }
 		stage('Build gradle') {
