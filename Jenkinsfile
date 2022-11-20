@@ -17,7 +17,7 @@ pipeline {
 				}
 			}
 			steps {
-                scripts {
+                script {
                     scripts.mvn = load 'maven.groovy'
                     scripts.mvn.maven_build_test()
                 }
