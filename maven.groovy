@@ -1,4 +1,4 @@
-/* plugins {
+ plugins {
     id 'groovy'
 }
 
@@ -11,17 +11,17 @@ sourceSets {
             srcDirs = ['resources']
         }
     }
-} */
+}
 
-/* repositories {
+repositories {
     mavenCentral()
     mavenLocal()
     maven {
         url "https://repo.jenkins-ci.org/releases/"
     }
-} */
+}
 
-/* dependencies {
+dependencies {
     implementation group: 'com.hynnet', name: 'json-lib', version: '2.4'
     implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.0'
     implementation group: 'org.eclipse.hudson', name: 'hudson-core', version: '3.3.3', { exclude group: 'org.eclipse.hudson', module: 'hudson-remoting' }
@@ -33,10 +33,10 @@ sourceSets {
     testImplementation group: 'com.lesfurets', name: 'jenkins-pipeline-unit', version: '1.7'
     testImplementation group: 'org.jenkins-ci.plugins.workflow', name: 'workflow-job', version: '2.40'
     testImplementation group: 'junit', name: 'junit', version: '4.13'
-} */
+}
 
 def maven_build_test() {
-    sh 'gradle build'
+    sh 'mvn clean install -e'
 }
 
 
