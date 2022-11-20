@@ -5,8 +5,8 @@ pipeline {
         gradle 'Gradle-7.5'
     }
 	parameters{
-		choice(name: 'Build_Tool', choices:['maven','gradle'], description:'' )
-		booleanParam(name: 'PushNexus', defaultValue: false, description: '')
+		choice choices: ['maven','gradle'], name: 'Build_Tool'
+	    booleanParam 'PushNexus'
 	}
     stages {
         stage('Build mvn') {
