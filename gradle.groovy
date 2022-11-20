@@ -1,7 +1,7 @@
-    def gradle_build_test() {
-        stage(){
-            sh 'gradle build'
-        }
+def gradle_build_test() {
+    stage('build'){
+        sh 'gradle build'
     }
+}
 
-    return this;
+return this;
