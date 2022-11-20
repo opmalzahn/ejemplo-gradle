@@ -1,3 +1,4 @@
+def scripts = [:]
 pipeline {
     agent any
     tools {
@@ -18,11 +19,11 @@ pipeline {
 			steps {
                 echo 'Build & test'
                 //sh 'mvn clean install -e'
-                mvn_script = load 'maven.groovy'
-                mvn_script.maven_build_test()
+                scripts.mvn = load 'maven.groovy'
+                scripts.mvn.maven_build_test()
             }
         }
-		stage('Build gradle') {
+		/* stage('Build gradle') {
             when {
 				expression{
 					params.Build_Tool == 'gradle'
@@ -34,7 +35,7 @@ pipeline {
                 //gradle_script = load 'gradle.groovy'
                 //gradle_script.gradle_build_test()
             }
-        }
+        } */
         stage('Push to Nexus') {
            when {
 				expression{
