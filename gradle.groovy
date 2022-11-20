@@ -1,6 +1,18 @@
-def gradle_build_test() {
-    stage('build'){
+def compile() {
+    stage('grdl compile'){
         sh 'gradle build'
+    }
+}
+
+def run() {
+    stage('grdl run'){
+        sh 'gradle build'
+    }
+}
+
+def compile() {
+    stage('grdl test'){
+        sh 'curl -X GET \'http://localhost:8081/rest/mscovid/test?msg=testing\''
     }
 }
 
