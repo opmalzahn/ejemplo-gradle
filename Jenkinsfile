@@ -1,4 +1,6 @@
-//def script_mvn = load 'maven.groovy'
+def script_mvn
+def script_gradle
+
 pipeline {
     agent any
     tools {
@@ -10,13 +12,9 @@ pipeline {
 	    booleanParam 'PushNexus'
 	}
     stages {
-        stage('Load Scripts') {
-            steps {
-                script {
-                    script_mvn = load 'maven.groovy'
-                    script_gradle = load 'gradle.groovy'
-                }
-            }
+        stage('Load Scripts') {            
+            script_mvn = load 'maven.groovy'
+            script_gradle = load 'gradle.groovy'
         }
         stage('Build mvn') {
             when {
@@ -25,10 +23,7 @@ pipeline {
 				}
 			}
 			steps {
-                script {
-                    script_mvn.maven_build_test()
-                }
-                
+                script_mvn.maven_build_test()                
             }
         }
 		stage('Build gradle') {
