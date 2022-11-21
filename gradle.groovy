@@ -1,17 +1,17 @@
 def grdl_compile() {
-    stage('grdl compile'){
+    stage('Compile'){
         sh 'gradle build'
     }
 }
 
 def grdl_run() {
-    stage('grdl run'){
+    stage('Run'){
         sh 'gradle bootRun &'
     }
 }
 
 def grdl_test() {
-    stage('grdl test'){
+    stage('Test'){
         sh 'curl -X GET \'http://nexus:8081/rest/mscovid/test?msg=testing\''
     }
 }
